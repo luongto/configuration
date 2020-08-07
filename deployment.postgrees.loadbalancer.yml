@@ -1,0 +1,14 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+    name: postgree-loadbalancer
+    labels:
+        app: postgree-loadbalancer
+spec:
+    ports:
+        - name: http-port
+          port: 5432
+          targetPort: 5432
+    selector: 
+        app: postgres
+    type: LoadBalancer
