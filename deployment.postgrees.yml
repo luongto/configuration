@@ -4,7 +4,6 @@ metadata:
   name: postgres
   labels:
     app: postgres
-    group: db
 spec:
   replicas: 1
   selector:
@@ -14,7 +13,6 @@ spec:
     metadata:
       labels:
         app: postgres
-        type: db
     spec:
       volumes: # indicates which PVC are available for this Deployment
         - name: postgres-storage
