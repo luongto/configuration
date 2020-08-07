@@ -2,10 +2,8 @@
 kind: ConfigMap
 metadata:
   name: postgres-config
-  labels:
-    group: db
 data:
+  PGDATA: /var/lib/postgresql/data/pgdata
   POSTGRES_DB: postgres
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: P@ssword123
-  PGDATA: /var/lib/postgresql/data/pgdata
