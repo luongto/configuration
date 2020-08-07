@@ -5,6 +5,6 @@ metadata:
   labels:
     group: db
 data:
-  POSTGRES_DB: itwo
-  POSTGRES_USER: itwouser
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
   POSTGRES_PASSWORD: P@ssword123
