@@ -1,0 +1,10 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    group: db
+data:
+  POSTGRES_DB: itwo
+  POSTGRES_USER: itwouser
+  POSTGRES_PASSWORD: P@ssword123
