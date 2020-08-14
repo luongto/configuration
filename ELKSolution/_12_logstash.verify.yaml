@@ -1,0 +1,3 @@
+kubectl exec -it logstash-deployment-558d7f4446-vdpdq bash
+
+bin/logstash-plugin list

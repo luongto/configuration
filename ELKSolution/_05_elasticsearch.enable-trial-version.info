@@ -1,0 +1,33 @@
+STEP 0: SET UP SECURTIY
+0. kubectl exec -it elasticsearch-statefullset-0 bash
+1. bin/elasticsearch-setup-passwords interactive -> set all password to P@ssword123
+
+Enter password for [elastic]:
+Reenter password for [elastic]:
+Enter password for [kibana]:
+Reenter password for [kibana]:
+Enter password for [logstash_system]:
+Reenter password for [logstash_system]:
+Enter password for [beats_system]:
+Reenter password for [beats_system]:
+Changed password for user [kibana]:
+Changed password for user [logstash_system]:
+Changed password for user [beats_system]:
+Changed password for user [elastic]:
+
+
+STEP 1: ACTIVATE
+
+kubectl port-forward elasticsearch-statefullset-0 9200:9200 (elasticsearch-statefullset-0 is the pod name gotten by kubectl get pods)
+
+To activate trial version:
+POST http://localhost:9200/_xpack/license/start_trial?acknowledge=true
+(Basic Auth)
+
+
+To verify whether the license is activated:
+GET http://localhost:9200/_xpack/license
+
+curl --user elastic:P@ssword123 -X GET "http://localhost:9200/?pretty"
+
+Once trial license is activated you can close the terminal as port forwarding isn’t needed anymore.
