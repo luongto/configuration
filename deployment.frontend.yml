@@ -1,0 +1,38 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ione-deployment
+  labels:
+    app: ione
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ione
+  template:
+    metadata:
+      labels:
+        app: ione
+    spec:
+      containers:
+      - name: iakscr
+        image: iakscr.azurecr.io/ione:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: ione-service
+    labels:
+        app: ione
+spec:
+    ports:
+        - name: http-port
+          port: 80
+          targetPort: 80
+    selector: 
+        app: ione
+    type: LoadBalancer
+
+    
