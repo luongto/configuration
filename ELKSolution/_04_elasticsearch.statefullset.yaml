@@ -3,9 +3,9 @@ kind: StatefulSet
 metadata:
   name: elasticsearch-statefullset
   labels:
-    service: elasticsearch-clusterip # matches to the selector defined in the service, line 10 in the file [03]elasticsearch.service.yaml (to the selector defined in the service.)
+    service: elasticsearch-statefullset # matches to the selector defined in the service, line 10 in the file [03]elasticsearch.service.yaml (to the selector defined in the service.)
 spec:
-  serviceName: elasticsearch-discovery # matches to the selector defined in the service, line 26 in the file [03]elasticsearch.service.yaml (name of the headless service)
+  serviceName: elasticsearch-discovery # matches to the metadata:name of the headless service
   replicas: 1
   selector:
     matchLabels:

@@ -6,7 +6,7 @@ metadata:
 data:
     
   logstash.yml: |
-    xpack.monitoring.elasticsearch.url: http://elasticsearch-statefullset:9200
+    xpack.monitoring.elasticsearch.url: http://elasticsearch-clusterip:9200
     dead_letter_queue.enable: true
     xpack.monitoring.enabled: true
     xpack.monitoring.elasticsearch.username: logstash_system 
@@ -31,7 +31,7 @@ data:
     }
     output {
       elasticsearch {
-        hosts => [ "elasticsearch-statefullset:9200" ]
+        hosts => [ "elasticsearch-clusterip:9200" ]
         user => "elastic"
         password => "P@ssword123"
         index => "azureeventhub-%{+YYYY.MM.dd}"

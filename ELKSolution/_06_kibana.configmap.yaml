@@ -9,5 +9,5 @@ data:
     server.host: "0"
     elasticsearch.url: http://elasticsearch-clusterip:9200
     xpack.monitoring.ui.container.elasticsearch.enabled: true
-    elasticsearch.username: kibana
+    elasticsearch.username: elastic
     elasticsearch.password: P@ssword123

@@ -7,7 +7,7 @@ metadata:
 spec:                        
   type: ClusterIP
   selector:                   
-    service: elasticsearch-statefullset
+    service: elasticsearch-statefullset #this map to the name of the deployment (with elasticsearch, it's supposed to be the statefullset)
   ports:                     
   - name: http               
     port: 9200               
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch-discovery # match with the line 8 of the file [04]elasticsearch.statefullset.yaml -> serviceName: elasticsearch-discovery
+  name: elasticsearch-discovery # metadata:name of the service should match value of spec: serviceName of StatefulSet e.g. match with the line 8 of the file [04]elasticsearch.statefullset.yaml -> serviceName: elasticsearch-discovery
 spec:
   clusterIP: None # headless service
   selector:
-    service: elasticsearch-statefullset # for headless Services that define selectors, the endpoints controller creates Endpoints records in the API, and modifies the DNS configuration to return records (addresses) that point directly to the Pods backing the Service
+    service: elasticsearch-statefullset
   ports:
   - name: transport
     port: 9300
